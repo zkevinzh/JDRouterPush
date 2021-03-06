@@ -180,8 +180,8 @@ def resultDisplay(SERVERPUSHKEY):
                   + "  当前版本：" + version
         if final_result.get("update_log"):
             content = content + "\n" + final_result["update_log"] + "\n```"
-    if final_result.get("announcement"):
-        content = content + "\n> " + final_result["announcement"] + " \n\n"
+   # if final_result.get("announcement"):
+   #     content = content + "\n> " + final_result["announcement"] + " \n\n"
     for pointInfo in pointInfos:
         mac = pointInfo["mac"]
         todayPointIncome = pointInfo["todayPointIncome"]
@@ -260,7 +260,7 @@ def checkForUpdates():
     res = requests.get(url=remote_address,headers=headers)
     if res.status_code == 200:
         res_json = res.json()
-        final_result["announcement"] = res_json["announcement"]
+       # final_result["announcement"] = res_json["announcement"]
         if res_json["version"] != version:
             final_result["updates_version"] = res_json["version"]
             final_result["update_log"] = res_json["updateLog"]
