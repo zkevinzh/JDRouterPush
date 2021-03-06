@@ -180,8 +180,8 @@ def resultDisplay(SERVERPUSHKEY):
                   + "  当前版本：" + version
         if final_result.get("update_log"):
             content = content + "\n" + final_result["update_log"] + "\n```"
-   # if final_result.get("announcement"):
-   #     content = content + "\n> " + final_result["announcement"] + " \n\n"
+#    if final_result.get("announcement"):
+#        content = content + "\n> " + final_result["announcement"] + " \n\n"
     for pointInfo in pointInfos:
         mac = pointInfo["mac"]
         todayPointIncome = pointInfo["todayPointIncome"]
@@ -251,23 +251,23 @@ def sendNotification(SERVERPUSHKEY,text,desp):
     print("标题->",text)
     print("内容->\n",desp)
 
-# 检测更新
-def checkForUpdates():
-    remote_address = "https://raw.githubusercontent.com/leifengwl/JDRouterPush/main/config.ini"
-    headers = {
-        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36"
-    }
-    res = requests.get(url=remote_address,headers=headers)
-    if res.status_code == 200:
-        res_json = res.json()
-       # final_result["announcement"] = res_json["announcement"]
-        if res_json["version"] != version:
-            final_result["updates_version"] = res_json["version"]
-            final_result["update_log"] = res_json["updateLog"]
-        else:
-            print("欢迎使用JDRouterPush!")
-    else:
-        print("checkForUpdate failed!")
+## 检测更新
+#def checkForUpdates():
+#    remote_address = "https://raw.githubusercontent.com/leifengwl/JDRouterPush/main/config.ini"
+#    headers = {
+#        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36"
+#    }
+#    res = requests.get(url=remote_address,headers=headers)
+#    if res.status_code == 200:
+#        res_json = res.json()
+#        final_result["announcement"] = res_json["announcement"]
+#        if res_json["version"] != version:
+#            final_result["updates_version"] = res_json["version"]
+#            final_result["update_log"] = res_json["updateLog"]
+#        else:
+#            print("欢迎使用JDRouterPush!")
+#    else:
+#        print("checkForUpdate failed!")
 
 # 主操作
 def main(WSKEY,SERVERPUSHKEY,DEVICENAME,RECORDSNUM):
