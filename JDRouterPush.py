@@ -275,7 +275,7 @@ def main(WSKEY,SERVERPUSHKEY,DEVICENAME,RECORDSNUM):
     headers["wskey"] = WSKEY
     records_num = int(RECORDSNUM)
     resolveDeviceName(DEVICENAME)
-    checkForUpdates()
+#    checkForUpdates()
     todayPointIncome()
     todayPointDetail()
     pinTotalAvailPoint()
